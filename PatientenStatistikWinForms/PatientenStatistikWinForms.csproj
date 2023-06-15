@@ -56,6 +56,12 @@
     <Compile Include="FrmAnschrift.Designer.cs">
       <DependentUpon>FrmAnschrift.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAnweseneheit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnweseneheit.Designer.cs">
+      <DependentUpon>FrmAnweseneheit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAnschrift.resx">
       <DependentUpon>FrmAnschrift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnweseneheit.resx">
+      <DependentUpon>FrmAnweseneheit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerson.resx">
       <DependentUpon>FrmPerson.cs</DependentUpon>
