@@ -22,9 +22,9 @@ namespace PatientenStatistikWinForms
             DbSchicht.OpenConnection();
             FrmAnweseneheit frm;
             DbDataReader reader = DbSchicht.GetDataReader("SELECT * FROM Anwesenheit LIMIT 1");
-            //if (reader.Read())
-            //    frm = new FrmAnweseneheit(reader);
-            //else
+            if (reader.Read())
+                frm = new FrmAnweseneheit(reader);
+            else
                 frm = new FrmAnweseneheit();
             Application.Run(frm);
         }
