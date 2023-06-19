@@ -67,5 +67,24 @@ namespace PatientenStatistikWinForms
         }
 
         #endregion
+
+        #region Properties zum Anzeigen des Objekts in einer ComboBox oder ListBox
+        public virtual string DisplayMember
+        {
+            get
+            {   // individuell je nach Klasse implementieren
+                return $"{this.GetType().Name.Substring(3)} {Convert.ToDateTime(dtpAnwesenheitstag.Value).ToString()}, {txtGrund.Text}";
+            }
+        }
+
+        public FrmAnweseneheit ValueMember
+        {
+            get
+            {
+                return this; // direkt das aktuelle Objekt in der List- oder ComboBox-Zeile speichern
+            }
+        }
+
+        #endregion
     }
 }
