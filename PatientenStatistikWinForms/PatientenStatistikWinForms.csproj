@@ -56,11 +56,23 @@
     <Compile Include="FrmAnschrift.Designer.cs">
       <DependentUpon>FrmAnschrift.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAnweseneheit.cs">
+    <Compile Include="FrmAnwesenheit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAnweseneheit.Designer.cs">
-      <DependentUpon>FrmAnweseneheit.cs</DependentUpon>
+    <Compile Include="FrmAnwesenheit.Designer.cs">
+      <DependentUpon>FrmAnwesenheit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMitarbeiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMitarbeiter.designer.cs">
+      <DependentUpon>FrmMitarbeiter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPatient.Designer.cs">
+      <DependentUpon>FrmPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPerson.cs">
       <SubType>Form</SubType>
@@ -77,8 +89,14 @@
     <EmbeddedResource Include="FrmAnschrift.resx">
       <DependentUpon>FrmAnschrift.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAnweseneheit.resx">
-      <DependentUpon>FrmAnweseneheit.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAnwesenheit.resx">
+      <DependentUpon>FrmAnwesenheit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMitarbeiter.resx">
+      <DependentUpon>FrmMitarbeiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPatient.resx">
+      <DependentUpon>FrmPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerson.resx">
       <DependentUpon>FrmPerson.cs</DependentUpon>

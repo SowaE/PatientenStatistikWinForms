@@ -1,6 +1,6 @@
 ﻿namespace PatientenStatistikWinForms
 {
-    partial class FrmAnweseneheit
+    partial class FrmAnwesenheit
     {
         /// <summary>
         /// Required designer variable.

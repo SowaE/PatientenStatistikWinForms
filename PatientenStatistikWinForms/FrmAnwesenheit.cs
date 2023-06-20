@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace PatientenStatistikWinForms
 {
-    public partial class FrmAnweseneheit : Form, IDbReadWriteDelete
+    public partial class FrmAnwesenheit : Form, IDbReadWriteDelete
     {
         #region Deklarationen, Konstruktoren und DataHasChanged
         public int AnwesenheitID { get; private set; } = 0;
 
         protected bool wasDataChanged = false;
 
-        public FrmAnweseneheit()
+        public FrmAnwesenheit()
         {
             InitializeComponent();
         }
 
-        public FrmAnweseneheit(DbDataReader reader) : this()
+        public FrmAnwesenheit(DbDataReader reader) : this()
         {
             if (reader != null)
                 DbReadRecord(reader);
@@ -77,7 +77,7 @@ namespace PatientenStatistikWinForms
             }
         }
 
-        public FrmAnweseneheit ValueMember
+        public FrmAnwesenheit ValueMember
         {
             get
             {
