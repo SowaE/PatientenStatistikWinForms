@@ -35,28 +35,22 @@ namespace PatientenStatistikWinForms
             this.label6 = new System.Windows.Forms.Label();
             this.nupPatientNr = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.menContextAnwesenheiten = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenNeuAnwesenheiten = new System.Windows.Forms.ToolStripMenuItem();
-            this.menBearbeitenAnwesenheiten = new System.Windows.Forms.ToolStripMenuItem();
-            this.menLoeschenArbeitszeiten = new System.Windows.Forms.ToolStripMenuItem();
+            this.menContextArbeitszeiten = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menNeuAnwesenheit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menBearbeitenAnwesenheit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menLoeschenAnwesenheit = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupPatientNr)).BeginInit();
-            this.menContextAnwesenheiten.SuspendLayout();
+            this.menContextArbeitszeiten.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNachname
             // 
-            this.txtNachname.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.txtNachname.Size = new System.Drawing.Size(341, 20);
-            // 
-            // txtVorname
-            // 
-            this.txtVorname.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.txtNachname.Size = new System.Drawing.Size(394, 26);
             // 
             // cbxAnschrift
             // 
-            this.cbxAnschrift.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.cbxAnschrift.Size = new System.Drawing.Size(341, 21);
+            this.cbxAnschrift.Size = new System.Drawing.Size(394, 28);
             // 
             // groupBox1
             // 
@@ -65,11 +59,9 @@ namespace PatientenStatistikWinForms
             this.groupBox1.Controls.Add(this.nupPatientNr);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 163);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(0, 251);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(655, 285);
+            this.groupBox1.Size = new System.Drawing.Size(865, 438);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Patientendaten";
@@ -79,13 +71,13 @@ namespace PatientenStatistikWinForms
             this.lbxAnwesenheiten.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbxAnwesenheiten.ContextMenuStrip = this.menContextAnwesenheiten;
+            this.lbxAnwesenheiten.ContextMenuStrip = this.menContextArbeitszeiten;
             this.lbxAnwesenheiten.DisplayMember = "DisplayMember";
             this.lbxAnwesenheiten.FormattingEnabled = true;
-            this.lbxAnwesenheiten.Location = new System.Drawing.Point(179, 45);
-            this.lbxAnwesenheiten.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbxAnwesenheiten.ItemHeight = 20;
+            this.lbxAnwesenheiten.Location = new System.Drawing.Point(269, 69);
             this.lbxAnwesenheiten.Name = "lbxAnwesenheiten";
-            this.lbxAnwesenheiten.Size = new System.Drawing.Size(459, 238);
+            this.lbxAnwesenheiten.Size = new System.Drawing.Size(570, 364);
             this.lbxAnwesenheiten.TabIndex = 4;
             this.lbxAnwesenheiten.ValueMember = "ValueMember";
             // 
@@ -93,17 +85,15 @@ namespace PatientenStatistikWinForms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(182, 29);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(273, 45);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 13);
+            this.label6.Size = new System.Drawing.Size(131, 17);
             this.label6.TabIndex = 3;
             this.label6.Text = "Anwesenheitstaage";
             // 
             // nupPatientNr
             // 
-            this.nupPatientNr.Location = new System.Drawing.Point(15, 45);
-            this.nupPatientNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nupPatientNr.Location = new System.Drawing.Point(23, 69);
             this.nupPatientNr.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -115,7 +105,7 @@ namespace PatientenStatistikWinForms
             0,
             0});
             this.nupPatientNr.Name = "nupPatientNr";
-            this.nupPatientNr.Size = new System.Drawing.Size(61, 20);
+            this.nupPatientNr.Size = new System.Drawing.Size(91, 26);
             this.nupPatientNr.TabIndex = 2;
             this.nupPatientNr.UseWaitCursor = true;
             this.nupPatientNr.Value = new decimal(new int[] {
@@ -128,63 +118,60 @@ namespace PatientenStatistikWinForms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 29);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(20, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 13);
+            this.label5.Size = new System.Drawing.Size(172, 17);
             this.label5.TabIndex = 1;
             this.label5.Text = "Eindeutige Patienten-Nr. *";
             // 
-            // menContextAnwesenheiten
+            // menContextArbeitszeiten
             // 
-            this.menContextAnwesenheiten.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menContextAnwesenheiten.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenNeuAnwesenheiten,
-            this.menBearbeitenAnwesenheiten,
-            this.menLoeschenArbeitszeiten});
-            this.menContextAnwesenheiten.Name = "menContext";
-            this.menContextAnwesenheiten.Size = new System.Drawing.Size(266, 70);
-            this.menContextAnwesenheiten.Opening += new System.ComponentModel.CancelEventHandler(this.menContextAnwesenheiten_Opening);
+            this.menContextArbeitszeiten.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menContextArbeitszeiten.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menNeuAnwesenheit,
+            this.menBearbeitenAnwesenheit,
+            this.menLoeschenAnwesenheit});
+            this.menContextArbeitszeiten.Name = "menContext";
+            this.menContextArbeitszeiten.Size = new System.Drawing.Size(370, 100);
+            this.menContextArbeitszeiten.Opening += new System.ComponentModel.CancelEventHandler(this.menContextAnwesenheiten_Opening);
             // 
-            // MenNeuAnwesenheiten
+            // menNeuAnwesenheit
             // 
-            this.MenNeuAnwesenheiten.Name = "MenNeuAnwesenheiten";
-            this.MenNeuAnwesenheiten.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.MenNeuAnwesenheiten.Size = new System.Drawing.Size(265, 22);
-            this.MenNeuAnwesenheiten.Text = "Neue Anwesenheit erstellen";
-            this.MenNeuAnwesenheiten.Click += new System.EventHandler(this.MenNeuAnwesenheiten_Click);
+            this.menNeuAnwesenheit.Name = "menNeuAnwesenheit";
+            this.menNeuAnwesenheit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.menNeuAnwesenheit.Size = new System.Drawing.Size(369, 32);
+            this.menNeuAnwesenheit.Text = "Neue Anwesenheit erstellen";
+            this.menNeuAnwesenheit.Click += new System.EventHandler(this.MenNeuAnwesenheit_Click);
             // 
-            // menBearbeitenAnwesenheiten
+            // menBearbeitenAnwesenheit
             // 
-            this.menBearbeitenAnwesenheiten.Name = "menBearbeitenAnwesenheiten";
-            this.menBearbeitenAnwesenheiten.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.menBearbeitenAnwesenheiten.Size = new System.Drawing.Size(265, 22);
-            this.menBearbeitenAnwesenheiten.Text = "bearbeiten";
-            this.menBearbeitenAnwesenheiten.Click += new System.EventHandler(this.menBearbeitenAnwesenheiten_Click);
+            this.menBearbeitenAnwesenheit.Name = "menBearbeitenAnwesenheit";
+            this.menBearbeitenAnwesenheit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.menBearbeitenAnwesenheit.Size = new System.Drawing.Size(369, 32);
+            this.menBearbeitenAnwesenheit.Text = "bearbeiten";
+            this.menBearbeitenAnwesenheit.Click += new System.EventHandler(this.menBearbeitenAnwesenheit_Click);
             // 
-            // menLoeschenArbeitszeiten
+            // menLoeschenAnwesenheit
             // 
-            this.menLoeschenArbeitszeiten.Name = "menLoeschenArbeitszeiten";
-            this.menLoeschenArbeitszeiten.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.menLoeschenArbeitszeiten.Size = new System.Drawing.Size(265, 22);
-            this.menLoeschenArbeitszeiten.Text = "löschen";
-            this.menLoeschenArbeitszeiten.Click += new System.EventHandler(this.MenLoeschen_Click);
+            this.menLoeschenAnwesenheit.Name = "menLoeschenAnwesenheit";
+            this.menLoeschenAnwesenheit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.menLoeschenAnwesenheit.Size = new System.Drawing.Size(369, 32);
+            this.menLoeschenAnwesenheit.Text = "löschen";
+            this.menLoeschenAnwesenheit.Click += new System.EventHandler(this.MenLoeschen_Click);
             // 
             // FrmPatient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 464);
+            this.ClientSize = new System.Drawing.Size(865, 696);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.MinimumSize = new System.Drawing.Size(403, 153);
             this.Name = "FrmPatient";
             this.Text = "FrmPatient";
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupPatientNr)).EndInit();
-            this.menContextAnwesenheiten.ResumeLayout(false);
+            this.menContextArbeitszeiten.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -196,9 +183,9 @@ namespace PatientenStatistikWinForms
         public System.Windows.Forms.ListBox lbxAnwesenheiten;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.NumericUpDown nupPatientNr;
-        private System.Windows.Forms.ContextMenuStrip menContextAnwesenheiten;
-        private System.Windows.Forms.ToolStripMenuItem MenNeuAnwesenheiten;
-        private System.Windows.Forms.ToolStripMenuItem menBearbeitenAnwesenheiten;
-        private System.Windows.Forms.ToolStripMenuItem menLoeschenArbeitszeiten;
+        private System.Windows.Forms.ContextMenuStrip menContextArbeitszeiten;
+        private System.Windows.Forms.ToolStripMenuItem menNeuAnwesenheit;
+        private System.Windows.Forms.ToolStripMenuItem menBearbeitenAnwesenheit;
+        private System.Windows.Forms.ToolStripMenuItem menLoeschenAnwesenheit;
     }
 }

@@ -81,10 +81,11 @@ namespace PatientenStatistikWinForms
         // die ComboBox leer ist
         private void menContextAnwesenheiten_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            menBearbeitenAnwesenheit.Enabled = lbxAnwesenheiten.SelectedItem != null;
+            menLoeschenAnwesenheit.Enabled = menBearbeitenAnwesenheit.Enabled;
         }
 
-        private void MenNeuAnwesenheiten_Click(object sender, EventArgs e)
+        private void MenNeuAnwesenheit_Click(object sender, EventArgs e)
         {
             try
             {
@@ -92,17 +93,18 @@ namespace PatientenStatistikWinForms
                     DbWriteRecord();
 
                 // Soeichern erfolgreich
-                var anwesenheit = (lbxAnwesenheiten.DataSource == null) ? new List<FrmAnwesenheit>()
+                var anwesenheiten = (lbxAnwesenheiten.DataSource == null) 
+                                            ? new List<FrmAnwesenheit>()
                                             : lbxAnwesenheiten.DataSource as List<FrmAnwesenheit>;
                 var frm = new FrmAnwesenheit(null, PatientID);
                 frm.ShowDialog();
 
                 if (frm.PatientID_FK > 0)
                 {
-                    anwesenheit.Add(frm);
+                    anwesenheiten.Add(frm);
                     // ListBox aktualisieren:
                     lbxAnwesenheiten.DataSource = null;
-                    lbxAnwesenheiten.DataSource = anwesenheit;
+                    lbxAnwesenheiten.DataSource = anwesenheiten;
                     lbxAnwesenheiten.DisplayMember = "DisplayMember";
                 }
 
@@ -114,30 +116,28 @@ namespace PatientenStatistikWinForms
             }
         }
 
-        private void menBearbeitenAnwesenheiten_Click(object sender, EventArgs e)
+        private void menBearbeitenAnwesenheit_Click(object sender, EventArgs e)
         {
             if (lbxAnwesenheiten.SelectedItem == null)
                 return;
             var frm = lbxAnwesenheiten.SelectedItem as FrmAnwesenheit;
             frm.ShowDialog();
             // ListBox aktualisieren:
-            var arbeitszeiten = lbxAnwesenheiten.DataSource as List<FrmAnwesenheit>;
+            var anwesenheiten = lbxAnwesenheiten.DataSource as List<FrmAnwesenheit>;
             lbxAnwesenheiten.DataSource = null;
-            lbxAnwesenheiten.DataSource = arbeitszeiten;
+            lbxAnwesenheiten.DataSource = anwesenheiten;
             lbxAnwesenheiten.DisplayMember = "DisplayMember";
-
-            //lbxArbeitszeiten.SelectedItem = frm; // aktuelles wieder markieren
         }
 
         private void MenLoeschen_Click(object sender, EventArgs e)
         {
-            var arbeitszeiten = lbxAnwesenheiten.DataSource as List<FrmAnwesenheit>;
+            var anwesenheiten = lbxAnwesenheiten.DataSource as List<FrmAnwesenheit>;
             var frm = lbxAnwesenheiten.SelectedItem as FrmAnwesenheit;
             frm.DbDeleteRecord();
-            arbeitszeiten.Remove(frm);
+            anwesenheiten.Remove(frm);
             // ListBox aktualisieren:
             lbxAnwesenheiten.DataSource = null;
-            lbxAnwesenheiten.DataSource = arbeitszeiten;
+            lbxAnwesenheiten.DataSource = anwesenheiten;
             lbxAnwesenheiten.DisplayMember = "DisplayMember";
         }
 
@@ -163,6 +163,5 @@ namespace PatientenStatistikWinForms
 
         #endregion
 
- 
     }
 }

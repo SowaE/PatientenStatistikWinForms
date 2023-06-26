@@ -74,15 +74,15 @@
     <Compile Include="FrmPerson.Designer.cs">
       <DependentUpon>FrmPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDbReadWriteDelete.cs" />
-    <Compile Include="NullableDateTimePicker.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="FrmPraxis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPraxis.Designer.cs">
       <DependentUpon>FrmPraxis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IDbReadWriteDelete.cs" />
+    <Compile Include="NullableDateTimePicker.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

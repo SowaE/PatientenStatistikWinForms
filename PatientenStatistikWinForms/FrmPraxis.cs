@@ -27,7 +27,7 @@ namespace PatientenStatistikWinForms
             InitializeComponent();
             anzPraxis++;
             if (anzPraxis > 1)
-                throw new ApplicationException("Es darf nur ein FrmPraxis-Objekt geben!");
+                throw new ApplicationException("Es darf nur ein FrmFirma-Objekt geben!");
         }
 
         public FrmPraxis(DbDataReader reader) : this()
@@ -68,7 +68,7 @@ namespace PatientenStatistikWinForms
                 patienten.Add(frm);
             }
             DbSchicht.CloseSecondConnection();
-            lbxPatienten.DataSource = patienten;
+            lbxPatient.DataSource = patienten;
 
             wasDataChanged = false;
         }
@@ -116,7 +116,8 @@ namespace PatientenStatistikWinForms
         // die ComboBox leer ist
         private void menContext_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            menBearbeiten.Enabled = cbxAnschrift.SelectedItem != null;
+            menLoeschen.Enabled = menBearbeiten.Enabled;
         }
 
         private void MenAnschriftNeu_Click(object sender, EventArgs e)
@@ -126,26 +127,33 @@ namespace PatientenStatistikWinForms
 
         private void menBearbeiten_Click(object sender, EventArgs e)
         {
-
+            if (cbxAnschrift.SelectedItem == null)
+                return;
+            FrmAnschrift frm = cbxAnschrift.SelectedItem as FrmAnschrift;
+            frm.ShowDialog();
+            // ComboBox aktualisieren:
+            cbxAnschrift.DataSource = new FrmAnschrift[] { frm };
+            cbxAnschrift.SelectedItem = frm;
         }
 
         private void MenLoeschen_Click(object sender, EventArgs e)
         {
-
+            (cbxAnschrift.SelectedItem as FrmAnschrift).DbDeleteRecord();
+            cbxAnschrift.SelectedItem = null;
         }
         #endregion
 
-        #region Methoden für die Kontextmenüs der Patienten-ListBox
+        #region Methoden für die Kontextmenüs der Mitarbeiter-ListBox
 
         // Kümmert sich darum, dass bearbeiten und löschen nicht möglich, wenn
         // die ComboBox leer ist
         private void menContextMitarbeiter_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            menBearbeitenMitarbeiter.Enabled = lbxPatienten.SelectedItem != null;
-            menLoeschenMitarbeiter.Enabled = menNeuenPatient.Enabled;
+            menBearbeitenPraxis.Enabled = lbxPatient.SelectedItem != null;
+            menLoeschenPraxis.Enabled = menNeuePraxis.Enabled;
         }
 
-        private void MenNeuerMitarbeiter_Click(object sender, EventArgs e)
+        private void MenPraxisNeu_Click(object sender, EventArgs e)
         {
             try
             {
@@ -153,21 +161,21 @@ namespace PatientenStatistikWinForms
                     DbWriteRecord();
 
                 // Soeichern erfolgreich
-                var patient = (lbxPatienten.DataSource == null) ? new List<FrmPatient>()
-                                        : lbxPatienten.DataSource as List<FrmPatient>;
+                var patient = (lbxPatient.DataSource == null) ? new List<FrmPatient>()
+                                                                      : lbxPatient.DataSource as List<FrmPatient>;
                 var frm = new FrmPatient(null, PraxisID);
                 frm.ShowDialog();
 
-                if (frm.PatientID > 0)
+                if (frm.PraxisID_FK > 0)
                 {
                     patient.Add(frm);
                     // ListBox aktualisieren:
-                    lbxPatienten.DataSource = null;
-                    lbxPatienten.DataSource = patient;
-                    lbxPatienten.DisplayMember = "DisplayMember";
+                    lbxPatient.DataSource = null;
+                    lbxPatient.DataSource = patient;
+                    lbxPatient.DisplayMember = "DisplayMember";
                 }
 
-                lbxPatienten.SelectedItem = frm;
+                lbxPatient.SelectedItem = frm;
             }
             catch (Exception ex)
             {
@@ -175,32 +183,30 @@ namespace PatientenStatistikWinForms
             }
         }
 
-        private void menBearbeitenMitarbeiter_Click(object sender, EventArgs e)
+        private void MenBearbeitenPraxis_Click(object sender, EventArgs e)
         {
-            if (lbxPatienten.SelectedItem == null)
+            if (lbxPatient.SelectedItem == null)
                 return;
-            var frm = lbxPatienten.SelectedItem as FrmPatient;
+            var frm = lbxPatient.SelectedItem as FrmPatient;
             frm.ShowDialog();
             // ListBox aktualisieren:
-            var mitarbeiter = lbxPatienten.DataSource as List<FrmPatient>;
-            lbxPatienten.DataSource = null;
-            lbxPatienten.DataSource = mitarbeiter;
-            lbxPatienten.DisplayMember = "DisplayMember";
+            var patient = lbxPatient.DataSource as List<FrmPatient>;
+            lbxPatient.DataSource = null;
+            lbxPatient.DataSource = patient;
+            lbxPatient.DisplayMember = "DisplayMember";
         }
 
-        private void MenLoeschenMitarbeiter_Click(object sender, EventArgs e)
+        private void MenLoeschenPraxis_Click(object sender, EventArgs e)
         {
-            var mitarbeiter = lbxPatienten.DataSource as List<FrmPatient>;
-            var frm = lbxPatienten.SelectedItem as FrmPatient;
+            var patient = lbxPatient.DataSource as List<FrmPatient>;
+            var frm = lbxPatient.SelectedItem as FrmPatient;
             frm.DbDeleteRecord();
-            mitarbeiter.Remove(frm);
+            patient.Remove(frm);
             // ListBox aktualisieren:
-            lbxPatienten.DataSource = null;
-            lbxPatienten.DataSource = mitarbeiter;
-            lbxPatienten.DisplayMember = "DisplayMember";
+            lbxPatient.DataSource = null;
+            lbxPatient.DataSource = patient;
+            lbxPatient.DisplayMember = "DisplayMember";
         }
         #endregion
-
-
     }
 }
