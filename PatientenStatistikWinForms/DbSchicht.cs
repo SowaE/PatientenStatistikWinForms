@@ -105,7 +105,7 @@ namespace Db_Schicht
             {
                 if (tupel.control != null && tupel.control.Tag != null && 
                     tupel.control.Tag.ToString() == "*" && 
-                    SqlData(tupel.value) == null)
+                    SqlData(tupel.value) == DBNull.Value)
                 {
                     string name;
                     if (tupel.control != null)

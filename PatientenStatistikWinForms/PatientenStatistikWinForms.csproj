@@ -62,12 +62,6 @@
     <Compile Include="FrmAnwesenheit.Designer.cs">
       <DependentUpon>FrmAnwesenheit.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMitarbeiter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMitarbeiter.designer.cs">
-      <DependentUpon>FrmMitarbeiter.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +78,12 @@
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmPraxis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPraxis.Designer.cs">
+      <DependentUpon>FrmPraxis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAnschrift.resx">
@@ -92,14 +92,14 @@
     <EmbeddedResource Include="FrmAnwesenheit.resx">
       <DependentUpon>FrmAnwesenheit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMitarbeiter.resx">
-      <DependentUpon>FrmMitarbeiter.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmPatient.resx">
       <DependentUpon>FrmPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerson.resx">
       <DependentUpon>FrmPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPraxis.resx">
+      <DependentUpon>FrmPraxis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
