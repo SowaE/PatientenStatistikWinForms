@@ -20,13 +20,13 @@ namespace PatientenStatistikWinForms
             Application.SetCompatibleTextRenderingDefault(false);
             // Test der Klasse FrmPerson
             DbSchicht.OpenConnection();
-            FrmAnwesenheit frm = null;
-            /*DbDataReader reader = DbSchicht.GetDataReader("SELECT * FROM Anwesenheit LIMIT 1");
+            FrmPraxis frm = null;
+            DbDataReader reader = DbSchicht.GetDataReader("SELECT * FROM Praxis");
             if (reader.Read())
-                frm = new FrmAnwesenheit(reader, PatientID);
+                frm = new FrmPraxis(reader);
             else
-                frm = new FrmAnwesenheit();
-            */
+                frm = new FrmPraxis();
+
             Application.Run(frm);
         }
     }

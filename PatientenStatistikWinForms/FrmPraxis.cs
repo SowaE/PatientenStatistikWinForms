@@ -55,7 +55,7 @@ namespace PatientenStatistikWinForms
             // Lesen der Anschrift
             FrmPerson.FillAnschriftCombo(reader, cbxAnschrift);
 
-            // Lesen der Mitarbeiter
+            // Lesen der Patienten
             DbDataReader readerPatient = DbSchicht.GetDataReader("SELECT p.*, pa.* FROM Person p "
                 + "INNER JOIN Patient pa ON p.PersonID = pa.PersonID_FK "
                 + "WHERE pa.PraxisID_FK=" + PraxisID + " ORDER BY p.Nachname, p.Vorname", true);
@@ -91,7 +91,7 @@ namespace PatientenStatistikWinForms
         public void DbDeleteRecord()
         {
             if (PraxisID > 0)
-                throw new ApplicationException("das einzige FrmFirma-Objekt daef nicht gelöscht werden!");
+                throw new ApplicationException("das einzige FrmFirma-Objekt darf nicht gelöscht werden!");
         }
 
         protected void FrmPerson_FormClosing(object sender, FormClosingEventArgs e)
